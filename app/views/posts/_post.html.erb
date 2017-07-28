@@ -1,0 +1,15 @@
+<div class="post">
+	<div class="title">
+		<div class="user-pic">
+			<%= image_tag user.profile_pic_url %>
+		</div>
+		<div class="time"><%= time_ago_in_words(post.created_at) %> ago</div>
+	</div>
+	
+	<div class="text">
+		<%= link_to [user, post], method: :delete, class: 'close-x' do %>
+			<div>X</div>
+		<% end %>
+		<%= post.text %>
+	</div>
+</div>
