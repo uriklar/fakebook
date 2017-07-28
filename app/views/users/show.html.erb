@@ -3,6 +3,12 @@
 		<div class="profile-pic">
 			<%= image_tag @user.profile_pic_url %>
 		</div>
+
+		<div class="friends-list">
+			<% @user.all_friends.each do |user| %>
+				<%= render 'users/user', :user => user %>
+   		<% end %>
+		</div>
 	</div>
 	<div class="main-content">
 		<div class="title">
@@ -25,6 +31,15 @@
 		<div class="posts">
 			<% @user.posts.reverse.each do |post| %>
 				<%= render 'posts/post', :user => @user, :post => post %>
+   		<% end %>
+		</div>
+	</div>
+
+	<div class="people-you-may-know">
+		<div class="title">People you may know</div>
+		<div class="people-list">
+			<% @user.people_you_may_know.each do |user| %>
+				<%= render 'users/user', :user => user %>
    		<% end %>
 		</div>
 	</div>
