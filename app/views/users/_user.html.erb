@@ -7,14 +7,22 @@
 			<div class="user-action">View</div>
 		<% end %>
 
-		<%= link_to friendships_path({
-			friendship: {
-				user_id: current_user.id,
-				friend_id: user.id
-			}
-		}), method: :post do %>
-			<div class="user-action">Add Friend</div>
+		<% if current_user.is_friend(user) %>
+			<%= link_to friendship_path(current_user.friendship_with(user)), method: :delete do %>
+					<div class="user-action">Remove Friend</div>
+			<% end %>
+		<% else %>
+			<%= link_to friendships_path({
+				friendship: {
+					user_id: current_user.id,
+					friend_id: user.id
+				}
+			}), method: :post do %>
+				<div class="user-action">Add Friend</div>
+			<% end %>
 		<% end %>
+
+		
 		
 
 	</div>

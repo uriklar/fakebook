@@ -12,4 +12,13 @@ class User < ActiveRecord::Base
 	def all_friends
 		friends + inverse_friends
 	end
+
+	def is_friend user
+		all_friends.include? user
+	end
+
+	def friendship_with user
+		friendships.find { |f| f.friend_id === user.id } ||
+		inverse_friendships.find { |f| f.user_id === user.id }
+	end
 end
