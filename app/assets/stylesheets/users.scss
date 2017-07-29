@@ -82,18 +82,49 @@
 	}
 }
 
-.people-list {
+.people-list, .friends-list {
 	display: flex;
 }
 
-.small-profile-pic {
+.small-user {
 	width: 70px;
 	height: 70px;
 	padding: 3px;
+	position: relative;
 
 	img {
 		width: 100%;
 		height: 100%;
 	}
+
+	.user-actions {
+		visibility: hidden;
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		bottom: 0;
+		padding: 3px;
+		background-color: rgba(51,51,51, .7);
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-direction: column;
+
+		.user-action {
+			font-size: 12px;
+			color: white;
+			cursor: pointer;
+		}
+	}
+
+	&:hover {
+		.user-actions {
+			visibility: visible;
+		}
+	}
+
 }
+
+
 

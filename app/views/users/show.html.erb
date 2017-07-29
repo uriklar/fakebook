@@ -4,9 +4,10 @@
 			<%= image_tag @user.profile_pic_url %>
 		</div>
 
+		<h4>Friends:</h4>
 		<div class="friends-list">
 			<% @user.all_friends.each do |user| %>
-				<%= render 'users/user', :user => user %>
+				<%= render 'users/user', :user => user, current_user: @user %>
    		<% end %>
 		</div>
 	</div>
@@ -36,10 +37,10 @@
 	</div>
 
 	<div class="people-you-may-know">
-		<div class="title">People you may know</div>
+		<h4>People you may know:</h4>
 		<div class="people-list">
 			<% @user.people_you_may_know.each do |user| %>
-				<%= render 'users/user', :user => user %>
+				<%= render 'users/user', :user => user, current_user: @user %>
    		<% end %>
 		</div>
 	</div>

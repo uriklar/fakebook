@@ -1,3 +1,21 @@
-<div class="small-profile-pic">
+<div class="small-user">
 	<%= image_tag user.profile_pic_url %>
+
+	<div class="user-actions">
+		
+		<%= link_to user do %>
+			<div class="user-action">View</div>
+		<% end %>
+
+		<%= link_to friendships_path({
+			friendship: {
+				user_id: current_user.id,
+				friend_id: user.id
+			}
+		}), method: :post do %>
+			<div class="user-action">Add Friend</div>
+		<% end %>
+		
+
+	</div>
 </div>
